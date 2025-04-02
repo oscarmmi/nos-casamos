@@ -138,3 +138,79 @@ html, body{
       height: 300px;
     }
   }
+
+
+  .rsvp-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .rsvp-form h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .radio-group input[type="radio"] {
+    margin-right: 0.5rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #1E1C1C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background: #333;
+  }
+
+  /* Opcional: Estilo para campos requeridos */
+  label::after {
+    content: " *";
+    color: #ff0000;
+    display: none;
+  }
+
+  label[for="name"]::after,
+  label[for="email"]::after,
+  .form-group:nth-child(4) > label::after {
+    display: inline;
+  }

@@ -9,9 +9,35 @@
     <link rel="stylesheet" type="text/css" href="./icons/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css?family=Caveat|Quicksand&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
   </head>
   <body>
     <header class="header">
+      <div class="slider-container">
+        <div class="slider">
+          <div class="slide active" style="background-image: url('./img/hero.jpeg')"></div>
+          <div class="slide" style="background-image: url('./img/iglesia.jpg')"></div>
+          <div class="slide" style="background-image: url('./img/finca.jpg')"></div>
+          <div class="slide" style="background-image: url('./img/resort.jpeg')"></div>
+        </div>
+        
+        <button class="slider-arrow slider-arrow-left" onclick="changeSlide(-1)">
+          <i class="fas fa-angle-double-left"></i>
+        </button>
+        <button class="slider-arrow slider-arrow-right" onclick="changeSlide(1)">
+          <i class="fas fa-angle-double-right"></i>
+        </button>
+        
+        <div class="slider-dots">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+      </div>
+      
       <div class="header-content">
         <h1 class="heading">
           Javier & Karol
@@ -39,186 +65,25 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <style>
-        .header {
-          position: relative;
-          height: 100vh;
-          display: flex;
-          align-items: flex-start;
-          justify-content: center;
-          padding-top: 15vh;
-        }
-
-        .header-content {
-          text-align: center;
-          padding: 2rem;
-          background: rgba(255, 255, 255, 0.8);
-          border-radius: 10px;
-          max-width: 800px;
-          width: 90%;
-        }
-
-        .heading {
-          margin-bottom: 2rem;
-          color: #1E1C1C;
-          font-size: 3.5rem;
-          text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .heading-subtext {
-          display: block;
-          margin-top: 1rem;
-          font-size: 2rem;
-        }
-
-        .countdown-section {
-          margin-top: 2rem;
-        }
-
-        .wedding-date {
-          font-size: 1.5rem;
-          margin-bottom: 1.5rem;
-          color: #333;
-        }
-
-        .countdown {
-          display: flex;
-          justify-content: center;
-          gap: 2rem;
-        }
-
-        .countdown-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .countdown-item span:first-child {
-          font-size: 2.5rem;
-          font-weight: bold;
-          color: #1E1C1C;
-        }
-
-        .countdown-item .label {
-          font-size: 0.9rem;
-          color: #666;
-          margin-top: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-          .header {
-            padding-top: 10vh;
-          }
-          
-          .heading {
-            font-size: 2.5rem;
-          }
-          
-          .heading-subtext {
-            font-size: 1.5rem;
-          }
-
-          .countdown {
-            gap: 1rem;
-          }
-
-          .countdown-item span:first-child {
-            font-size: 2rem;
-          }
-        }
-      </style>
-
-      <script>
-        function updateCountdown() {
-          const weddingDate = new Date('December 20, 2025 14:00:00').getTime();
-          
-          function update() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-
-            if (distance < 0) {
-              clearInterval(timer);
-              document.querySelector('.countdown').innerHTML = '<div class="wedding-date">¡El gran día ha llegado!</div>';
-            }
-          }
-
-          update();
-          const timer = setInterval(update, 1000);
-        }
-
-        document.addEventListener('DOMContentLoaded', updateCountdown);
-      </script>
+      </div>      
     </header>
-    <section class="section">
-      <h2 class="sub-heading">Descripción</h2>
-      <p>
-        Nuestra boda será un evento religioso en la Parroquia de Santa Cruz (Girón), 
-        seguida de una fiesta en la finca Raices del municipio de Lebrija.
-      </p>
-      <img class="resort-image" src="./img/iglesia.jpg" alt="Parroquia de Santa Cruz" />
-      
-      <div class="locations-container">
-        <div class="location-card">
-          <h3>Ceremonia Religiosa</h3>
-          <p>Parroquia de Santa Cruz - Girón</p>
-          <div class="map-container">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.5622003062267!2d-73.17410212551634!3d7.060614816689757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683ea2a6d2d8c9%3A0xff394df7e5804944!2sParroquia%20Santa%20Cruz!5e0!3m2!1ses-419!2sco!4v1743564143019!5m2!1ses-419!2sco" 
-              width="100%" 
-              height="450" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-          <a href="https://maps.app.goo.gl/LGC8sPcGWbWVPxJt7" 
-             target="_blank" 
-             class="directions-button">
-            Ver en Google Maps
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <h2 class="sub-heading">Detalles</h2>
-      <div class="details">
-        <i class="fas fa-calendar-check"></i>
-        <h3 class="details-heading">Cuando</h3>
-        <p>20 de Diciembre de 2025</p>
-        <a title="Add to Calendar" 
-           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio%20de%20Javier%20y%20Karol&details=Matrimonio%20de%20Javier%20y%20Karol&dates=20251220T140000Z/20251220T150000Z&location=123%20Main%20Street"
-           target="_blank" 
-           rel="noopener noreferrer">
-           Add to Calendar
-        </a>
-      </div>
-      <div class="details">
-        <i class="fas fa-map-marked-alt"></i>
-        <h3 class="details-heading">Ubicación</h3>
-        <p><a target="_blank" rel="noopener"
-            href="https://www.google.com/maps/place/Finca+Raices/data=!4m2!3m1!1s0x0:0x3a2a8b4c25d5d9bb?sa=X&ved=1t:2428&ictx=111">Finca
-            Raices</a>, Lebrija, Santander</p>
-        <img class="resort-image" src="./img/finca.jpg" alt="Resort" />
+    
+    <div class="sections-container">
+      <section class="section">
+        <h2 class="sub-heading">Descripción</h2>
+        <p>
+          Nuestra boda será un evento religioso en la Parroquia de Santa Cruz (Girón), 
+          seguida de una fiesta en la finca Raices del municipio de Lebrija.
+        </p>
+        <img class="resort-image" src="./img/iglesia.jpg" alt="Parroquia de Santa Cruz" />
+        
         <div class="locations-container">
           <div class="location-card">
-            <h3>Finca Raices</h3>
-            <p>Lebrija</p>
+            <h3>Ceremonia Religiosa</h3>
+            <p>Parroquia de Santa Cruz - Girón</p>
             <div class="map-container">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.7445780849516!2d-73.1873873!3d7.155502200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6817ff479128a9%3A0x3a2a8b4c25d5d9bb!2sFinca%20Raices!5e0!3m2!1ses-419!2sco!4v1743564391315!5m2!1ses-419!2sco" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.5622003062267!2d-73.17410212551634!3d7.060614816689757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683ea2a6d2d8c9%3A0xff394df7e5804944!2sParroquia%20Santa%20Cruz!5e0!3m2!1ses-419!2sco!4v1743564143019!5m2!1ses-419!2sco" 
                 width="100%" 
                 height="450" 
                 style="border:0;" 
@@ -234,253 +99,149 @@
             </a>
           </div>
         </div>
-      </div>
-      <div class="details">
-        <i class="fas fa-suitcase"></i>
-        <h3 class="details-heading">Alojamiento</h3>
-        <p>
-          Para su comodidad, hemos dispuesto alojamiento en el mismo lugar de la celebración, para que puedan disfrutar sin preocupaciones. Si desean hospedarse, les pedimos confirmar su asistencia con anticipación.
-          Esperamos contar con su presencia para hacer de este día un recuerdo inolvidable.
-        </p>
-      </div>
-      <div class="details">
-        <i class="fas fa-plane-departure"></i>
-        <h3 class="details-heading">Como llegar</h3>
-        <div class="video-container"
-          style="position: relative; width: 100%; margin-top:50px; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */">
-          <iframe 
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-              src="https://www.youtube.com/embed/eN4zhsTXMAw" 
-              title="YouTube video player" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen>
-          </iframe>
+      </section>
+      
+      <section class="section">
+        <h2 class="sub-heading">Cuándo</h2>
+        <div class="details">
+          <i class="fas fa-calendar-check"></i>
+          <h3 class="details-heading">Fecha y Hora</h3>
+          <p>20 de Diciembre de 2025</p>
+          <a title="Add to Calendar" 
+             href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio%20de%20Javier%20y%20Karol&details=Matrimonio%20de%20Javier%20y%20Karol&dates=20251220T140000Z/20251220T150000Z&location=123%20Main%20Street"
+             target="_blank" 
+             rel="noopener noreferrer">
+             Add to Calendar
+          </a>
         </div>
-      </div>
-      <div class="details">
-        <i class="fas fa-suitcase"></i>
-        <h3 class="details-heading">Confirmación de asistencia</h3>
-        <button id="openModal" class="modal-button">Confirmar Asistencia</button>
-
-        <!-- Modal -->
-        <div id="rsvpModal" class="modal">
-          <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <form class="rsvp-form" id="rsvpForm">
-              <h3>Por favor, Confirma tu Asistencia</h3>
-              
-              <div class="form-group">
-                <label for="name">Nombre Completo **</label>
-                <input type="text" id="name" name="name" required>
+      </section>
+      
+      <section class="section">
+        <h2 class="sub-heading">Ubicación</h2>
+        <div class="details">
+          <i class="fas fa-map-marked-alt"></i>
+          <h3 class="details-heading">Finca Raices</h3>
+          <p><a target="_blank" rel="noopener"
+              href="https://www.google.com/maps/place/Finca+Raices/data=!4m2!3m1!1s0x0:0x3a2a8b4c25d5d9bb?sa=X&ved=1t:2428&ictx=111">Finca
+              Raices</a>, Lebrija, Santander</p>
+          <img class="resort-image" src="./img/finca.jpg" alt="Resort" />
+          <div class="locations-container">
+            <div class="location-card">
+              <h3>Finca Raices</h3>
+              <p>Lebrija</p>
+              <div class="map-container">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.7445780849516!2d-73.1873873!3d7.155502200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6817ff479128a9%3A0x3a2a8b4c25d5d9bb!2sFinca%20Raices!5e0!3m2!1ses-419!2sco!4v1743564391315!5m2!1ses-419!2sco" 
+                  width="100%" 
+                  height="450" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
               </div>
-
-              <div class="form-group">
-                <label for="email">Correo Electrónico **</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-
-              <div class="form-group">
-                <label for="guests">Número de Invitados *</label>
-                <select id="guests" name="guests">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label>¿Asistirás? *</label>
-                <div class="radio-group">
-                  <div class="radio-option">
-                    <input type="radio" id="yes" name="attendance" value="yes" required>
-                    <label for="yes">Sí, asistiré</label>
-                  </div>
-                  <div class="radio-option">
-                    <input type="radio" id="no" name="attendance" value="no">
-                    <label for="no">No podré asistir</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="notes">Notas Adicionales</label>
-                <textarea id="notes" name="notes" rows="3" placeholder="Comentarios o requerimientos especiales"></textarea>
-              </div>
-
-              <button type="submit" class="submit-btn">Confirmar Asistencia</button>
-            </form>
+              <a href="https://maps.app.goo.gl/LGC8sPcGWbWVPxJt7" 
+                 target="_blank" 
+                 class="directions-button">
+                Ver en Google Maps
+              </a>
+            </div>
           </div>
         </div>
+      </section>
+      
+      <section class="section">
+        <h2 class="sub-heading">Alojamiento</h2>
+        <div class="details">
+          <i class="fas fa-suitcase"></i>
+          <h3 class="details-heading">Información de Hospedaje</h3>
+          <p>
+            Para su comodidad, hemos dispuesto alojamiento en el mismo lugar de la celebración, para que puedan disfrutar sin preocupaciones. Si desean hospedarse, les pedimos confirmar su asistencia con anticipación.
+            Esperamos contar con su presencia para hacer de este día un recuerdo inolvidable.
+          </p>
+        </div>
+      </section>
+      
+      <section class="section">
+        <h2 class="sub-heading">Cómo Llegar</h2>
+        <div class="details">
+          <i class="fas fa-plane-departure"></i>
+          <h3 class="details-heading">Instrucciones de Viaje</h3>
+          <div class="video-container"
+            style="position: relative; width: 100%; margin-top:50px; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */">
+            <iframe 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                src="https://www.youtube.com/embed/eN4zhsTXMAw" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </section>
+      
+      <section class="section">
+        <h2 class="sub-heading">Confirmar Asistencia</h2>
+        <div class="details">
+          <i class="fas fa-suitcase"></i>
+          <h3 class="details-heading">RSVP</h3>
+          <button id="openModal" class="modal-button">Confirmar Asistencia</button>
 
-        <style>
-          .modal-button {
-            background: #1E1C1C;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s ease;
-          }
+          <!-- Modal -->
+          <div id="rsvpModal" class="modal">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <form class="rsvp-form" id="rsvpForm">
+                <h3>Por favor, Confirma tu Asistencia</h3>
+                
+                <div class="form-group">
+                  <label for="name">Nombre Completo **</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
 
-          .modal-button:hover {
-            background: #333;
-          }
+                <div class="form-group">
+                  <label for="email">Correo Electrónico **</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
 
-          .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            overflow-y: auto;
-          }
+                <div class="form-group">
+                  <label for="guests">Número de Invitados *</label>
+                  <select id="guests" name="guests">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
 
-          .modal-content {
-            background-color: #fff;
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-          }
+                <div class="form-group">
+                  <label>¿Asistirás? *</label>
+                  <div class="radio-group">
+                    <div class="radio-option">
+                      <input type="radio" id="yes" name="attendance" value="yes" required>
+                      <label for="yes">Sí, asistiré</label>
+                    </div>
+                    <div class="radio-option">
+                      <input type="radio" id="no" name="attendance" value="no">
+                      <label for="no">No podré asistir</label>
+                    </div>
+                  </div>
+                </div>
 
-          .close-button {
-            position: absolute;
-            right: 20px;
-            top: 10px;
-            font-size: 28px;
-            font-weight: bold;
-            color: #666;
-            cursor: pointer;
-          }
+                <div class="form-group">
+                  <label for="notes">Notas Adicionales</label>
+                  <textarea id="notes" name="notes" rows="3" placeholder="Comentarios o requerimientos especiales"></textarea>
+                </div>
 
-          .rsvp-form h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
-            color: #333;
-          }
+                <button type="submit" class="submit-btn">Confirmar Asistencia</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
-          .form-group {
-            margin-bottom: 25px;
-          }
-
-          .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-size: 16px;
-          }
-
-          .form-group input[type="text"],
-          .form-group input[type="email"],
-          .form-group select,
-          .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-          }
-
-          .radio-group {
-            display: flex;
-            gap: 30px;
-            margin-top: 10px;
-          }
-
-          .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-          }
-
-          .radio-option input[type="radio"] {
-            margin: 0;
-          }
-
-          .radio-option label {
-            margin: 0;
-          }
-
-          textarea {
-            resize: vertical;
-            min-height: 100px;
-          }
-
-          .submit-btn {
-            width: 100%;
-            padding: 12px;
-            background: #1E1C1C;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-          }
-
-          .submit-btn:hover {
-            background: #333;
-          }
-
-          @media (max-width: 768px) {
-            .modal-content {
-              padding: 20px;
-              margin: 10% auto;
-            }
-
-            .radio-group {
-              flex-direction: column;
-              gap: 15px;
-            }
-          }
-        </style>
-
-        <script>
-          // Get modal elements
-          const modal = document.getElementById('rsvpModal');
-          const openBtn = document.getElementById('openModal');
-          const closeBtn = document.querySelector('.close-button');
-
-          // Open modal
-          openBtn.onclick = function() {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-          }
-
-          // Close modal
-          closeBtn.onclick = function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-          }
-
-          // Close if clicked outside modal
-          window.onclick = function(event) {
-            if (event.target == modal) {
-              modal.style.display = 'none';
-              document.body.style.overflow = 'auto';
-            }
-          }
-
-          // Handle form submission
-          document.getElementById('rsvpForm').onsubmit = function(e) {
-            e.preventDefault();
-            // Add your form submission logic here
-            alert('¡Gracias por confirmar tu asistencia!');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-          }
-        </script>
-      </div>
-    </section>
+    <script src="script.js"></script>
   </body>
 </html>

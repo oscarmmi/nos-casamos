@@ -90,10 +90,6 @@ html, body{
     height: 0;
 }
 
-.locations-container {
-    margin-top: 2rem;
-  }
-
   .location-card {
     background: white;
     border-radius: 10px;

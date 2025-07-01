@@ -119,4 +119,35 @@ function updateCountdown() {
   const timer = setInterval(update, 1000);
 }
 
-document.addEventListener('DOMContentLoaded', updateCountdown); 
+document.addEventListener('DOMContentLoaded', updateCountdown);
+
+// --- Touch/Swipe support for slider ---
+(function() {
+  const sliderContainer = document.querySelector('.slider-container');
+  let startX = null;
+
+  if (sliderContainer) {
+    sliderContainer.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 1) {
+        startX = e.touches[0].clientX;
+      }
+    });
+
+    sliderContainer.addEventListener('touchend', function(e) {
+      if (startX !== null && e.changedTouches.length === 1) {
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+        if (Math.abs(diff) > 50) { // threshold for swipe
+          if (diff < 0) {
+            // Swipe left: next slide
+            changeSlide(1);
+          } else {
+            // Swipe right: previous slide
+            changeSlide(-1);
+          }
+        }
+      }
+      startX = null;
+    });
+  }
+})(); 

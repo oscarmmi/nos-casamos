@@ -572,4 +572,10 @@ textarea {
     width: 10px;
     height: 10px;
   }
+}
+
+@media (max-width: 1023px) {
+  .slider-arrow {
+    display: none !important;
+  }
 } 

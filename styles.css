@@ -100,6 +100,188 @@
     transform: scale(1.2);
   }
 
+/* Date and Time Section Styles */
+.date-time-info {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.date-display {
+  background: linear-gradient(135deg, #a1eba9, #1bcc22);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.date-display::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.date-display .day {
+  display: block;
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Caveat', cursive;
+  line-height: 1;
+}
+
+.date-display .month {
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+.date-display .year {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  opacity: 0.8;
+}
+
+.time-info {
+  margin: 2rem 0;
+}
+
+.ceremony-time, .reception-time {
+  background: #f8f9fa;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  border-left: 4px solid #1E1C1C;
+  transition: all 0.3s ease;
+}
+
+.ceremony-time:hover, .reception-time:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.ceremony-time i, .reception-time i {
+  color: #1E1C1C;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.countdown-note {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.countdown-note span {
+  font-size: 1.2rem;
+  color: #ffeaa7;
+}
+
+.calendar-actions {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.calendar-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #1E1C1C, #333);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+}
+
+.calendar-button:hover {
+  background: linear-gradient(135deg, #333, #1E1C1C);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.calendar-button i {
+  font-size: 1.2rem;
+}
+
+.calendar-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.calendar-note i {
+  color: #1E1C1C;
+  margin-right: 0.3rem;
+}
+
+.important-notes {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.important-notes h4 {
+  color: #856404;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.important-notes h4 i {
+  color: #f39c12;
+}
+
+.important-notes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.important-notes li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ffeaa7;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.important-notes li:last-child {
+  border-bottom: none;
+}
+
+.important-notes li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #27ae60;
+  font-weight: bold;
+}
+
 /* Sections Layout */
 .sections-container {
   display: grid;

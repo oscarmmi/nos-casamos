@@ -100,9 +100,18 @@ function updateCountdown() {
     document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
     document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 
+    // Update simple countdown in the "Cuándo" section
+    const daysSimpleElement = document.getElementById('days-simple');
+    if (daysSimpleElement) {
+      daysSimpleElement.textContent = days.toString();
+    }
+
     if (distance < 0) {
       clearInterval(timer);
       document.querySelector('.countdown').innerHTML = '<div class="wedding-date">¡El gran día ha llegado!</div>';
+      if (daysSimpleElement) {
+        daysSimpleElement.textContent = '0';
+      }
     }
   }
 

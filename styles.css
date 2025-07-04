@@ -100,6 +100,26 @@
     transform: scale(1.2);
   }
 
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section Link Styles */
+.section-link {
+  color: #1E1C1C;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: inherit;
+}
+
+.section-link:hover {
+  color: #f35412;
+  border-bottom-color: #f35412;
+  text-decoration: none;
+}
+
 /* Date and Time Section Styles */
 .date-time-info {
   text-align: center;
@@ -238,7 +258,7 @@
 }
 
 .important-notes {
-  background: #fff3cd;
+  background: #fbba9ceb;
   border: 1px solid #ffeaa7;
   border-radius: 10px;
   padding: 1.5rem;

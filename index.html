@@ -17,10 +17,10 @@
     <header class="header">
       <div class="slider-container">
         <div class="slider">
-          <div class="slide active" style="background-image: url('./img/hero.jpeg')"></div>
-          <div class="slide" style="background-image: url('./img/iglesia.jpg')"></div>
-          <div class="slide" style="background-image: url('./img/finca.jpg')"></div>
-          <div class="slide" style="background-image: url('./img/resort.jpeg')"></div>
+          <div class="slide active" style="background-image: url('./img/nosotros-1.jpg')"></div>
+          <div class="slide" style="background-image: url('./img/nosotros-2.jpg')"></div>
+          <div class="slide" style="background-image: url('./img/nosotros-3.jpg')"></div>
+          <div class="slide" style="background-image: url('./img/nosotros-4.jpg')"></div>
         </div>
         
         <button class="slider-arrow slider-arrow-left" onclick="changeSlide(-1)">
@@ -71,26 +71,28 @@
     <div class="sections-container">
 
       <section class="section">
-        <h2 class="sub-heading">Cuándo</h2>
+        <h2 class="sub-heading">Información</h2>
         <div class="details">
           <i class="fas fa-calendar-check"></i>
           <h3 class="details-heading">Fecha y Hora</h3>
           
           <div class="date-time-info">
+            <!--
             <div class="date-display">
               <span class="day">20</span>
               <span class="month">Diciembre</span>
               <span class="year">2025</span>
             </div>
+            -->
             
             <div class="time-info">
               <p class="ceremony-time">
                 <i class="fas fa-church"></i>
-                <strong>Ceremonia Religiosa:</strong> 5:00 PM
+                <strong><a href="#ceremonia" class="section-link">Ceremonia Religiosa</a>:</strong> 5:00 PM
               </p>
               <p class="reception-time">
                 <i class="fas fa-glass-cheers"></i>
-                <strong>Recepción:</strong> 6:30 PM
+                <strong><a href="#recepcion" class="section-link">Recepción</a>:</strong> 6:30 PM
               </p>
             </div>
             
@@ -110,7 +112,7 @@
           </div>
           
           <div class="important-notes">
-            <h4><i class="fas fa-exclamation-triangle"></i> Notas Importantes</h4>
+            <h4><i class="fas fa-calendar-check" style="color: #f35412"></i> Notas Importantes</h4>
             <ul>
               <li>Lleguen 30 minutos antes de la ceremonia</li>
               <li>Estacionamiento disponible en ambos lugares</li>
@@ -120,11 +122,11 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="ceremonia">
         <h2 class="sub-heading">Ceremonia</h2>
         <p>
           Nuestra boda será un evento religioso en la Parroquia San Antonio del Carrizal (Girón),
-          seguida de una fiesta en la finca San Jose del municipio de Girón.
+          seguida de una <a href="#recepcion" class="section-link">fiesta en la finca</a> San Jose del municipio de Girón.
         </p>
         <div class="gallery-slider ceremony-gallery">
           <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Anterior" onclick="changeCeremonyGalleryImage(-1)">
@@ -162,7 +164,7 @@
         </div>
       </section>
       
-      <section class="section">
+      <section class="section" id="recepcion">
         <h2 class="sub-heading">Recepción</h2>
         <div class="details">
           <i class="fas fa-map-marked-alt"></i>

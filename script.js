@@ -150,4 +150,69 @@ document.addEventListener('DOMContentLoaded', updateCountdown);
       startX = null;
     });
   }
+})();
+
+// --- Gallery Slider for Recepción section ---
+(function() {
+  const gallerySlides = document.querySelectorAll('.gallery-slide');
+  const totalGallery = gallerySlides.length;
+  let currentGalleryIndex = 0;
+  let galleryInterval;
+
+  function showGallerySlide(idx) {
+    gallerySlides.forEach((img, i) => {
+      img.classList.toggle('active', i === idx);
+    });
+  }
+
+  window.changeGalleryImage = function(direction) {
+    currentGalleryIndex += direction;
+    if (currentGalleryIndex >= totalGallery) currentGalleryIndex = 0;
+    if (currentGalleryIndex < 0) currentGalleryIndex = totalGallery - 1;
+    showGallerySlide(currentGalleryIndex);
+  };
+
+  function autoGallery() {
+    galleryInterval = setInterval(() => {
+      window.changeGalleryImage(1);
+    }, 4000);
+  }
+
+  // Touch/Swipe support for gallery slider
+  const gallerySlider = document.querySelector('.gallery-slider');
+  let startX = null;
+  if (gallerySlider) {
+    gallerySlider.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 1) {
+        startX = e.touches[0].clientX;
+      }
+    });
+    gallerySlider.addEventListener('touchend', function(e) {
+      if (startX !== null && e.changedTouches.length === 1) {
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+        if (Math.abs(diff) > 50) {
+          if (diff < 0) {
+            window.changeGalleryImage(1);
+          } else {
+            window.changeGalleryImage(-1);
+          }
+        }
+      }
+      startX = null;
+    });
+  }
+
+  // Start auto-advance
+  if (totalGallery > 1) {
+    autoGallery();
+    // Pause on hover (desktop)
+    if (gallerySlider) {
+      gallerySlider.addEventListener('mouseenter', () => clearInterval(galleryInterval));
+      gallerySlider.addEventListener('mouseleave', autoGallery);
+    }
+  }
+
+  // Show first image on load
+  showGallerySlide(currentGalleryIndex);
 })(); 

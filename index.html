@@ -157,6 +157,18 @@
           <h3 class="details-heading">Finca San Jose, Carrizal, Girón</h3>
           <div class="locations-container">
             <div class="location-card">
+              <!-- Gallery Slider Start -->
+              <div class="gallery-slider">
+                <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Anterior" onclick="changeGalleryImage(-1)">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <img src="./img/finca-1.jpg" alt="Finca San Jose 1" class="gallery-slide active" />
+                <img src="./img/finca-2.jpg" alt="Finca San Jose 2" class="gallery-slide" />
+                <button class="gallery-arrow gallery-arrow-right" type="button" aria-label="Siguiente" onclick="changeGalleryImage(1)">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <!-- Gallery Slider End -->
               <div class="map-container">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.2673292128775!2d-73.179727!3d7.094981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683fa8ca35bd83%3A0xff44c497f97d4eac!2sFinca%20San%20Jos%C3%A9%2C%20Vereda%20el%20Carrizal!5e0!3m2!1sen!2sco!4v1751335316836!5m2!1sen!2sco" 

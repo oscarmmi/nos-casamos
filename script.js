@@ -121,6 +121,111 @@ function updateCountdown() {
 
 document.addEventListener('DOMContentLoaded', updateCountdown);
 
+// Music Player Functionality
+(function() {
+  const musicToggle = document.getElementById('musicToggle');
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  let isPlaying = false;
+
+  // Check if music was playing before (localStorage)
+  const wasPlaying = localStorage.getItem('musicPlaying') === 'true';
+  
+  musicToggle.addEventListener('click', function() {
+    if (isPlaying) {
+      // Stop music
+      backgroundMusic.pause();
+      backgroundMusic.currentTime = 0;
+      musicToggle.classList.remove('playing');
+      isPlaying = false;
+      localStorage.setItem('musicPlaying', 'false');
+    } else {
+      // Play music
+      backgroundMusic.play().then(() => {
+        musicToggle.classList.add('playing');
+        isPlaying = true;
+        localStorage.setItem('musicPlaying', 'true');
+      }).catch(error => {
+        console.log('Audio playback failed:', error);
+        // Show a subtle notification that music couldn't play
+        showMusicError();
+      });
+    }
+  });
+
+  // Auto-play music if it was playing before (optional)
+  if (wasPlaying) {
+    // Only auto-play if user has interacted with the page
+    document.addEventListener('click', function autoPlayMusic() {
+      if (wasPlaying && !isPlaying) {
+        backgroundMusic.play().then(() => {
+          musicToggle.classList.add('playing');
+          isPlaying = true;
+        }).catch(error => {
+          console.log('Auto-play failed:', error);
+        });
+      }
+      document.removeEventListener('click', autoPlayMusic);
+    }, { once: true });
+  }
+
+  // Handle audio events
+  backgroundMusic.addEventListener('ended', function() {
+    // Music ended (shouldn't happen with loop, but just in case)
+    musicToggle.classList.remove('playing');
+    isPlaying = false;
+    localStorage.setItem('musicPlaying', 'false');
+  });
+
+  backgroundMusic.addEventListener('error', function() {
+    console.log('Audio error occurred');
+    showMusicError();
+  });
+
+  function showMusicError() {
+    // Create a subtle notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: rgba(255, 0, 0, 0.8);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      z-index: 1001;
+      backdrop-filter: blur(10px);
+      animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = 'Music file not found. Please add your music file.';
+    document.body.appendChild(notification);
+    
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+      notification.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
+    }, 3000);
+  }
+
+  // Add CSS animations for notifications
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
 // --- Touch/Swipe support for slider ---
 (function() {
   const sliderContainer = document.querySelector('.slider-container');

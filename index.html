@@ -126,7 +126,19 @@
           Nuestra boda será un evento religioso en la Parroquia San Antonio del Carrizal (Girón),
           seguida de una fiesta en la finca San Jose del municipio de Girón.
         </p>
-        <img class="resort-image" src="./img/iglesia.jpg" alt="Parroquia de Santa Cruz" />
+        <div class="gallery-slider ceremony-gallery">
+          <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Anterior" onclick="changeCeremonyGalleryImage(-1)">
+            <i class="fas fa-chevron-left" style="color: white;"></i>
+          </button>
+          <img src="./img/iglesia.jpg" alt="Parroquia San Antonio del Carrizal 1" class="gallery-slide active" />
+          <img src="./img/iglesia2.jpg" alt="Parroquia San Antonio del Carrizal 2" class="gallery-slide" />
+          <img src="./img/iglesia3.jpg" alt="Parroquia San Antonio del Carrizal 3" class="gallery-slide" />
+          <img src="./img/iglesia4.jpg" alt="Parroquia San Antonio del Carrizal 4" class="gallery-slide" />
+          <img src="./img/iglesia5.jpg" alt="Parroquia San Antonio del Carrizal 5" class="gallery-slide" />
+          <button class="gallery-arrow gallery-arrow-right" type="button" aria-label="Siguiente" onclick="changeCeremonyGalleryImage(1)">
+            <i class="fas fa-chevron-right" style="color: white;"></i>
+          </button>
+        </div>
         
         <div class="locations-container">
           <div class="location-card">

@@ -216,3 +216,65 @@ document.addEventListener('DOMContentLoaded', updateCountdown);
   // Show first image on load
   showGallerySlide(currentGalleryIndex);
 })(); 
+
+// --- Gallery Slider for Ceremonia section ---
+(function() {
+  const ceremonyGallery = document.querySelector('.ceremony-gallery');
+  if (!ceremonyGallery) return;
+  const ceremonySlides = ceremonyGallery.querySelectorAll('.gallery-slide');
+  const totalCeremony = ceremonySlides.length;
+  let currentCeremonyIndex = 0;
+  let ceremonyInterval;
+
+  function showCeremonySlide(idx) {
+    ceremonySlides.forEach((img, i) => {
+      img.classList.toggle('active', i === idx);
+    });
+  }
+
+  window.changeCeremonyGalleryImage = function(direction) {
+    currentCeremonyIndex += direction;
+    if (currentCeremonyIndex >= totalCeremony) currentCeremonyIndex = 0;
+    if (currentCeremonyIndex < 0) currentCeremonyIndex = totalCeremony - 1;
+    showCeremonySlide(currentCeremonyIndex);
+  };
+
+  function autoCeremonyGallery() {
+    ceremonyInterval = setInterval(() => {
+      window.changeCeremonyGalleryImage(1);
+    }, 4000);
+  }
+
+  // Touch/Swipe support for ceremony gallery slider
+  let startX = null;
+  ceremonyGallery.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+      startX = e.touches[0].clientX;
+    }
+  });
+  ceremonyGallery.addEventListener('touchend', function(e) {
+    if (startX !== null && e.changedTouches.length === 1) {
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if (Math.abs(diff) > 50) {
+        if (diff < 0) {
+          window.changeCeremonyGalleryImage(1);
+        } else {
+          window.changeCeremonyGalleryImage(-1);
+        }
+      }
+    }
+    startX = null;
+  });
+
+  // Start auto-advance
+  if (totalCeremony > 1) {
+    autoCeremonyGallery();
+    // Pause on hover (desktop)
+    ceremonyGallery.addEventListener('mouseenter', () => clearInterval(ceremonyInterval));
+    ceremonyGallery.addEventListener('mouseleave', autoCeremonyGallery);
+  }
+
+  // Show first image on load
+  showCeremonySlide(currentCeremonyIndex);
+})(); 

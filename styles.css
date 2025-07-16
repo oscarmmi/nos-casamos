@@ -800,3 +800,27 @@ textarea {
     bottom: auto;
   }
 } 
+
+.music-player-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+.music-player-controls button {
+  background: #f35412;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.music-player-controls button:hover {
+  background: #d8430f;
+} 

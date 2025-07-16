@@ -161,42 +161,18 @@ document.addEventListener('DOMContentLoaded', updateCountdown);
 
 // Music Player Functionality
 (function() {
-  const musicToggle = document.getElementById('musicToggle');
   const backgroundMusic = document.getElementById('backgroundMusic');
   let isPlaying = false;
 
   // Check if music was playing before (localStorage)
   const wasPlaying = localStorage.getItem('musicPlaying') === 'true';
   
-  musicToggle.addEventListener('click', function() {
-    if (isPlaying) {
-      // Stop music
-      backgroundMusic.pause();
-      backgroundMusic.currentTime = 0;
-      musicToggle.classList.remove('playing');
-      isPlaying = false;
-      localStorage.setItem('musicPlaying', 'false');
-    } else {
-      // Play music
-      backgroundMusic.play().then(() => {
-        musicToggle.classList.add('playing');
-        isPlaying = true;
-        localStorage.setItem('musicPlaying', 'true');
-      }).catch(error => {
-        console.log('Audio playback failed:', error);
-        // Show a subtle notification that music couldn't play
-        showMusicError();
-      });
-    }
-  });
-
-  // Auto-play music if it was playing before (optional)
+  // Only auto-play if user has interacted with the page
   if (wasPlaying) {
-    // Only auto-play if user has interacted with the page
     document.addEventListener('click', function autoPlayMusic() {
       if (wasPlaying && !isPlaying) {
         backgroundMusic.play().then(() => {
-          musicToggle.classList.add('playing');
+          // musicToggle.classList.add('playing'); // This line is removed as musicToggle is no longer available
           isPlaying = true;
         }).catch(error => {
           console.log('Auto-play failed:', error);
@@ -209,7 +185,7 @@ document.addEventListener('DOMContentLoaded', updateCountdown);
   // Handle audio events
   backgroundMusic.addEventListener('ended', function() {
     // Music ended (shouldn't happen with loop, but just in case)
-    musicToggle.classList.remove('playing');
+    // musicToggle.classList.remove('playing'); // This line is removed as musicToggle is no longer available
     isPlaying = false;
     localStorage.setItem('musicPlaying', 'false');
   });
@@ -263,6 +239,21 @@ document.addEventListener('DOMContentLoaded', updateCountdown);
   `;
   document.head.appendChild(style);
 })();
+
+// Music player controls
+const audio = document.getElementById('backgroundMusic');
+const playBtn = document.getElementById('musicPlay');
+const pauseBtn = document.getElementById('musicPause');
+const resetBtn = document.getElementById('musicReset');
+
+if (audio && playBtn && pauseBtn && resetBtn) {
+  playBtn.onclick = () => audio.play();
+  pauseBtn.onclick = () => audio.pause();
+  resetBtn.onclick = () => {
+    audio.currentTime = 0;
+    audio.pause();
+  };
+}
 
 // --- Touch/Swipe support for slider ---
 (function() {

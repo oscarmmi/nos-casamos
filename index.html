@@ -73,10 +73,11 @@
             </div>
           </div>
         </div>
-        <!-- Music Player Button moved here -->
-        <button id="musicToggle" class="music-toggle" aria-label="Toggle Music">
-          <i class="fas fa-music"></i>
-        </button>
+        <div class="music-player-controls">
+          <button id="musicPlay" aria-label="Play"><i class="fas fa-play"></i></button>
+          <button id="musicPause" aria-label="Pause"><i class="fas fa-pause"></i></button>
+          <button id="musicReset" aria-label="Reset"><i class="fas fa-undo"></i></button>
+        </div>
         <audio id="backgroundMusic" loop>
           <source src="assets/memories.mp3" type="audio/mpeg">
           Your browser does not support the audio element.

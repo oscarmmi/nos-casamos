@@ -803,11 +803,11 @@ textarea {
 
 .music-player-controls {
   display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center; /* Center horizontally, or use 'space-between' or 'space-around' as needed */
+  align-items: center;     /* Center vertically */
+  gap: 1rem;
+  margin-top: 30px;
 }
 
 .music-player-controls button {

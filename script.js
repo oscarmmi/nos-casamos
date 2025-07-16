@@ -2,6 +2,37 @@
 let currentSlideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
+const guestList = [
+  { id: 1, name: "Sr Eduardo Rueda & Sra", number_of_persons: 2 },
+  { id: 2, name: "Sr Walter Martinez, Sra e hijos", number_of_persons: 2 },
+  { id: 3, name: "Sr Edwin Robles, Sra e Hijos", number_of_persons: 4 },
+  { id: 4, name: "Sr Yosman Gamboa Sra e Hijos", number_of_persons: 2 },
+  { id: 5, name: "Sr Ismael & Sra Mary Angarita", number_of_persons: 2 },
+  { id: 6, name: "Sra Rosa Barragan", number_of_persons: 1 },
+  { id: 7, name: "Sr Fernando Rueda", number_of_persons: 3 },
+  { id: 8, name: "Sr Jorge Rueda", number_of_persons: 1 },
+  { id: 9, name: "Sr Heriberto Rueda e Hijo", number_of_persons: 2 },
+  { id: 10, name: "Sr Omar Pinzon & Sra", number_of_persons: 2 },
+  { id: 11, name: "Sr Mario, Sra & Hijo", number_of_persons: 3 },
+  { id: 12, name: "Sr Omar Andres Pinzon & Sra", number_of_persons: null },
+  { id: 13, name: "Sr Agustin, Sra e Hijos", number_of_persons: 4 },
+  { id: 14, name: "Sr Javier Pimiento Sra e hija", number_of_persons: null },
+  { id: 15, name: "Sr Cristian & Sra", number_of_persons: 2 },
+  { id: 16, name: "Sra Ana Porras", number_of_persons: 1 },
+  { id: 17, name: "Sr Hilario, Sra e Hijos", number_of_persons: 5 },
+  { id: 18, name: "Sr Leonardo, Sra & Ricardo", number_of_persons: 3 },
+  { id: 19, name: "Sr Miguel, Sra e Hijos", number_of_persons: 5 },
+  { id: 20, name: "Sra Natalia e hijos", number_of_persons: 1 },
+  { id: 21, name: "Sr Sergio, Sra e Hijos", number_of_persons: 2 },
+  { id: 22, name: "Sr Fabian, Sra e Hija", number_of_persons: 2 },
+  { id: 23, name: "Diego Parra", number_of_persons: 1 },
+  { id: 24, name: "Diego & Compañia", number_of_persons: 2 },
+  { id: 25, name: "Sebastian Daza", number_of_persons: 1 },
+  { id: 26, name: "Lorena Rangel", number_of_persons: 1 },
+  { id: 27, name: "Alejandra & Esposo", number_of_persons: 2 },
+  { id: 28, name: "Sr Jonathan, Sra e hijo", number_of_persons: 2 },
+  { id: 29, name: "Sr Wilmer, Sra e Hijas", number_of_persons: 2 },
+];
 
 function showSlide(index) {
   // Hide all slides
@@ -58,6 +89,13 @@ const closeBtn = document.querySelector('.close-button');
 openBtn.onclick = function() {
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+// Floating RSVP button opens modal too
+const floatingRSVP = document.getElementById('floatingRSVP');
+floatingRSVP.onclick = function() {
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
 }
 
 // Close modal
@@ -324,20 +362,20 @@ document.addEventListener('DOMContentLoaded', updateCountdown);
 
 // --- Gallery Slider for Ceremonia section ---
 (function() {
-  const ceremonyGallery = document.querySelector('.ceremony-gallery');
+  const ceremonyGallery = document.querySelector(".ceremony-gallery");
   if (!ceremonyGallery) return;
-  const ceremonySlides = ceremonyGallery.querySelectorAll('.gallery-slide');
+  const ceremonySlides = ceremonyGallery.querySelectorAll(".gallery-slide");
   const totalCeremony = ceremonySlides.length;
   let currentCeremonyIndex = 0;
   let ceremonyInterval;
 
   function showCeremonySlide(idx) {
     ceremonySlides.forEach((img, i) => {
-      img.classList.toggle('active', i === idx);
+      img.classList.toggle("active", i === idx);
     });
   }
 
-  window.changeCeremonyGalleryImage = function(direction) {
+  window.changeCeremonyGalleryImage = function (direction) {
     currentCeremonyIndex += direction;
     if (currentCeremonyIndex >= totalCeremony) currentCeremonyIndex = 0;
     if (currentCeremonyIndex < 0) currentCeremonyIndex = totalCeremony - 1;
@@ -352,12 +390,12 @@ document.addEventListener('DOMContentLoaded', updateCountdown);
 
   // Touch/Swipe support for ceremony gallery slider
   let startX = null;
-  ceremonyGallery.addEventListener('touchstart', function(e) {
+  ceremonyGallery.addEventListener("touchstart", function (e) {
     if (e.touches.length === 1) {
       startX = e.touches[0].clientX;
     }
   });
-  ceremonyGallery.addEventListener('touchend', function(e) {
+  ceremonyGallery.addEventListener("touchend", function (e) {
     if (startX !== null && e.changedTouches.length === 1) {
       const endX = e.changedTouches[0].clientX;
       const diff = endX - startX;
@@ -376,10 +414,12 @@ document.addEventListener('DOMContentLoaded', updateCountdown);
   if (totalCeremony > 1) {
     autoCeremonyGallery();
     // Pause on hover (desktop)
-    ceremonyGallery.addEventListener('mouseenter', () => clearInterval(ceremonyInterval));
-    ceremonyGallery.addEventListener('mouseleave', autoCeremonyGallery);
+    ceremonyGallery.addEventListener("mouseenter", () =>
+      clearInterval(ceremonyInterval)
+    );
+    ceremonyGallery.addEventListener("mouseleave", autoCeremonyGallery);
   }
 
   // Show first image on load
-  showCeremonySlide(currentCeremonyIndex);
+  showCeremonySlide(currentCeremonyIndex);  
 })(); 

@@ -127,6 +127,9 @@ html, body{
     .map-container iframe {
       height: 300px;
     }
+    .header {
+        max-height: 400px;
+    }    
   }
 
 

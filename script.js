@@ -87,16 +87,16 @@ const closeBtn = document.querySelector('.close-button');
 
 // Open modal
 openBtn.onclick = function() {
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  resetForm();
+  setGuestDataModal();
 }
 
 // Floating RSVP button opens modal too
 const floatingRSVP = document.getElementById('floatingRSVP');
 floatingRSVP.onclick = function() {
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-  floatingRSVP.style.display = 'none';
+  floatingRSVP.style.display = "none";  
+  resetForm();
+  setGuestDataModal();
 }
 
 // Close modal
@@ -122,6 +122,30 @@ document.getElementById('rsvpForm').onsubmit = function(e) {
   alert('¡Gracias por confirmar tu asistencia!');
   modal.style.display = 'none';
   document.body.style.overflow = 'auto';
+}
+
+function resetForm() {
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';  
+  document.getElementById('rsvpForm').reset();
+  document.getElementById("name").readOnly = false;
+  document.getElementById("guests").disabled = false;
+}
+
+function setGuestDataModal() {
+  const id = getUrlIdParam();
+  console.log("URL id parameter:", id);
+  const guest = guestList.find(guest => guest.id === parseInt(id));
+  if (guest) {
+    console.log("Guest found:", guest);
+    document.getElementById('name').value = guest.name;
+    document.getElementById('name').readOnly = true;
+    document.getElementById('guests').value = guest.number_of_persons;
+    document.getElementById('guests').disabled = true;
+    // Set attendance radio to 'yes'
+    const attendanceYes = document.querySelector('input[name="attendance"][value="yes"]');
+    if (attendanceYes) attendanceYes.checked = true;
+  }
 }
 
 function updateCountdown() {
@@ -417,3 +441,8 @@ if (audio && playBtn && pauseBtn && resetBtn) {
   // Show first image on load
   showCeremonySlide(currentCeremonyIndex);  
 })(); 
+
+function getUrlIdParam() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('id');
+} 

@@ -1,11 +1,10 @@
 .header {
-  position: relative;
-  height: 100vh;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   justify-content: center;
-  padding-top: 15vh;
-  overflow: hidden;
+  align-items: center;
+  min-height: 100dvh;
+  /* You can adjust min-height if you want a different height */
 }
 
 /* Slider Styles */
@@ -804,8 +803,8 @@ textarea {
 .music-player-controls {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* Center horizontally, or use 'space-between' or 'space-around' as needed */
-  align-items: center;     /* Center vertically */
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   margin-top: 30px;
 }
@@ -838,4 +837,49 @@ textarea {
   background: #d8430f;
   outline: none;
   transform: scale(1.08);
+} 
+
+/* --- HEADER: Use dynamic viewport height for better mobile support --- */
+.header {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Remove or comment out any fixed height or padding that causes issues */
+}
+
+/* --- SLIDER: Use aspect-ratio for background images --- */
+.slider .slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  aspect-ratio: 16/9; /* Keeps images proportional on all screens */
+}
+
+/* --- GALLERY SLIDER: Use object-fit for <img> tags --- */
+.gallery-slider .gallery-slide {
+  width: 100%;
+  height: auto;
+  max-height: 350px; /* Desktop default */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS FOR MOBILE --- */
+@media (max-width: 600px) {
+  .header {
+    min-height: 70dvh;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .slider .slide {
+    aspect-ratio: 16/10;
+  }
+  .gallery-slider .gallery-slide {
+    max-height: 180px;
+  }
 } 

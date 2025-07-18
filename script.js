@@ -96,12 +96,14 @@ const floatingRSVP = document.getElementById('floatingRSVP');
 floatingRSVP.onclick = function() {
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  floatingRSVP.style.display = 'none';
 }
 
 // Close modal
 closeBtn.onclick = function() {
   modal.style.display = 'none';
   document.body.style.overflow = 'auto'; // Restore scrolling
+  floatingRSVP.style.display = "block";
 }
 
 // Close if clicked outside modal
@@ -109,6 +111,7 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    floatingRSVP.style.display = "block";
   }
 }
 

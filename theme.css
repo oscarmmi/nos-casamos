@@ -128,7 +128,7 @@ html, body{
       height: 300px;
     }
     .header {
-        max-height: 400px;
+        max-height: 450px!important;
     }    
   }
 

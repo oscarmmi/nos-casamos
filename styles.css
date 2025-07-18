@@ -547,7 +547,7 @@ html {
 }
 
 .radio-group {
-  display: flex;
+  display: inline-block;
   gap: 30px;
   margin-top: 10px;
 }

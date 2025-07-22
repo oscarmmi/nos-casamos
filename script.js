@@ -116,12 +116,32 @@ window.onclick = function(event) {
 }
 
 // Handle form submission
-document.getElementById('rsvpForm').onsubmit = function(e) {
+document.getElementById('rsvpForm').onsubmit = async function(e) {
   e.preventDefault();
-  // Add your form submission logic here
-  alert('¡Gracias por confirmar tu asistencia!');
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
+  const form = e.target;
+  const formData = new FormData(form);
+
+  // Manually add the value of the disabled select
+  const guestsValue = document.getElementById('guests').value;
+  formData.append('guests', guestsValue);
+
+  try {
+    const response = await fetch('rsvp_mail.php', {
+      method: 'POST',
+      body: formData
+    });
+    const result = await response.json();
+    if (result.success) {
+      alert('¡Gracias por confirmar tu asistencia!');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      floatingRSVP.style.display = "block";
+    } else {
+      alert('Hubo un error al enviar tu confirmación. Intenta de nuevo.');
+    }
+  } catch (error) {
+    alert('No se pudo enviar la confirmación. Intenta de nuevo.');
+  }
 }
 
 function resetForm() {
@@ -134,10 +154,8 @@ function resetForm() {
 
 function setGuestDataModal() {
   const id = getUrlIdParam();
-  console.log("URL id parameter:", id);
   const guest = guestList.find(guest => guest.id === parseInt(id));
   if (guest) {
-    console.log("Guest found:", guest);
     document.getElementById('name').value = guest.name;
     document.getElementById('name').readOnly = true;
     document.getElementById('guests').value = guest.number_of_persons;

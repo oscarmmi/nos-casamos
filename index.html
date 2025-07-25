@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="general.css">
     
   </head>
   <body>
@@ -25,10 +26,10 @@
     <header class="header">
       <div class="slider-container">
         <div class="slider">
-          <div class="slide active" style="background-image: url('./img/nosotros-1.jpg')"></div>
-          <div class="slide" style="background-image: url('./img/nosotros-2.jpg')"></div>
-          <div class="slide" style="background-image: url('./img/nosotros-3.jpg')"></div>
-          <div class="slide" style="background-image: url('./img/nosotros-4.jpg')"></div>
+          <div class="slide active" style="background-image: url('./img/nosotros-1.webp')"></div>
+          <div class="slide" style="background-image: url('./img/nosotros-2.webp')"></div>
+          <div class="slide" style="background-image: url('./img/nosotros-3.webp')"></div>
+          <div class="slide" style="background-image: url('./img/nosotros-4.webp')"></div>
         </div>
         
         <button class="slider-arrow slider-arrow-left" onclick="changeSlide(-1)">
@@ -45,13 +46,13 @@
           <span class="dot" onclick="currentSlide(4)"></span>
         </div>
       </div>
-      
+            
       <div class="header-content">
         <h1 class="heading">
           Javier & Karol
           <span class="heading-subtext">¡Nos casamos!</span>
         </h1>
-
+        <!-- Countdown Section 
         <div class="countdown-section">
           <div class="wedding-date">20 de Diciembre, 2025</div>
           <div class="countdown">
@@ -73,6 +74,9 @@
             </div>
           </div>
         </div>
+        -->
+
+        <!-- Music Player Section -->
         <div class="music-player-controls">
           <button id="musicPlay" aria-label="Play"><i class="fas fa-play"></i></button>
           <button id="musicPause" aria-label="Pause"><i class="fas fa-pause"></i></button>
@@ -82,197 +86,233 @@
           <source src="assets/memories.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
-      </div>      
+      </div>       
     </header>
-    
-    <div class="sections-container">
 
-      <section class="section">
-        <h2 class="sub-heading">Información</h2>
-        <div class="details">
-          <i class="fas fa-calendar-check"></i>
-          <h3 class="details-heading">Fecha y Hora</h3>
-          
-          <div class="date-time-info">
-            
-            <div class="time-info">
-              <p class="ceremony-time">
-                <i class="fas fa-church"></i>
-                <strong><a href="#ceremonia" class="section-link">Ceremonia Religiosa</a>:</strong> 5:00 PM
-              </p>
-              <p class="reception-time">
-                <i class="fas fa-glass-cheers"></i>
-                <strong><a href="#recepcion" class="section-link">Recepción</a>:</strong> 6:30 PM
-              </p>
-            </div>
-            
-            <div class="countdown-note">
-              <p>¡Faltan solo <span id="days-simple">00</span> días para nuestro gran día!</p>
-            </div>
+    <div class="components-container">
+      <div class="details">
+        <h2>¡Bienvenidos!</h2>
+        <p>Con el corazón lleno de amor, hemos decidido unir nuestras vidas bajo la bendición de Dios y celebrar este paso tan importante junto a quienes más queremos.</p>
+
+
+        <p>Tu presencia hará aún más especial este momento, por eso queremos invitarte a ser parte de nuestra historia.</p>
+
+        <p>📌 Para conocer todos los detalles de nuestro matrimonio, te invitamos seguir navegando por la página. Allí encontrarás la fecha, hora, lugar… ¡y mucho más!</p>
+
+
+        <p>Te esperamos el día:</p>
+
+        <h1>20 de Diciembre, 2025</h1>
+        
+        <div class="countdown">
+          <div class="countdown-item">
+            <span id="days">00</span>
+            <span class="label">Días</span>
           </div>
-          
-          <div class="calendar-actions">
-            <a class="calendar-button primary" 
-               href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio%20de%20Javier%20y%20Karol&details=Matrimonio%20de%20Javier%20y%20Karol%20-%20Ceremonia%20y%20Recepción&dates=20251220T140000Z/20251220T220000Z&location=Parroquia%20San%20Antonio%20del%20Carrizal%2C%20Girón%20y%20Finca%20San%20José%2C%20Carrizal"
-               target="_blank" 
-               rel="noopener noreferrer">
-              <i class="fas fa-calendar-plus"></i>
-              Agregar al Calendario
-            </a>
+          <div class="countdown-item">
+            <span id="hours">00</span>
+            <span class="label">Horas</span>
           </div>
-          
-          <div class="important-notes">
-            <h4><i class="fas fa-calendar-check" style="color: #f35412"></i> Notas Importantes</h4>
-            <ul>
-              <li>Lleguen 30 minutos antes de la ceremonia</li>
-              <li>Estacionamiento disponible en ambos lugares</li>
-              <li>Confirmen su asistencia con anticipación</li>
-            </ul>
+          <div class="countdown-item">
+            <span id="minutes">00</span>
+            <span class="label">Minutos</span>
+          </div>
+          <div class="countdown-item">
+            <span id="seconds">00</span>
+            <span class="label">Segundos</span>
           </div>
         </div>
-      </section>
 
-      <section class="section" id="ceremonia">
-        <h2 class="sub-heading">Ceremonia</h2>
-        <p>
-          Nuestra boda será un evento religioso en la Parroquia San Antonio del Carrizal (Girón),
-          seguida de una <a href="#recepcion" class="section-link">fiesta en la finca</a> San Jose del municipio de Girón.
+        <p class="text-missing-days">¡Faltan solo <span id="days-simple" class="text-missing-days">00</span> días para nuestro
+          gran día!
         </p>
-        <div class="gallery-slider ceremony-gallery">
-          <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Anterior" onclick="changeCeremonyGalleryImage(-1)">
-            <i class="fas fa-chevron-left" style="color: white;"></i>
-          </button>
-          <img src="./img/iglesia.jpg" alt="Parroquia San Antonio del Carrizal 1" class="gallery-slide active" />
-          <img src="./img/iglesia2.jpg" alt="Parroquia San Antonio del Carrizal 2" class="gallery-slide" />
-          <img src="./img/iglesia3.jpg" alt="Parroquia San Antonio del Carrizal 3" class="gallery-slide" />
-          <img src="./img/iglesia4.jpg" alt="Parroquia San Antonio del Carrizal 4" class="gallery-slide" />
-          <img src="./img/iglesia5.jpg" alt="Parroquia San Antonio del Carrizal 5" class="gallery-slide" />
-          <button class="gallery-arrow gallery-arrow-right" type="button" aria-label="Siguiente" onclick="changeCeremonyGalleryImage(1)">
-            <i class="fas fa-chevron-right" style="color: white;"></i>
-          </button>
+
+        <div class="calendar-actions">
+          <a class="calendar-button primary" 
+             href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio%20de%20Javier%20y%20Karol&details=Matrimonio%20de%20Javier%20y%20Karol%20-%20Ceremonia%20y%20Recepción&dates=20251220T140000Z/20251220T220000Z&location=Parroquia%20San%20Antonio%20del%20Carrizal%2C%20Girón%20y%20Finca%20San%20José%2C%20Carrizal"
+             target="_blank" 
+             rel="noopener noreferrer">
+            <i class="fas fa-calendar-plus"></i>
+            Agregar al Calendario
+          </a>
         </div>
         
-        <div class="locations-container">
-          <div class="location-card">
-            <div class="map-container">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.3716761445517!2d-73.1746718!3d7.082838700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683e7d956eaa8b%3A0x210879c5f3fbd6b7!2sParroquia%20San%20Antonio%20del%20Carrizal!5e0!3m2!1sen!2sco!4v1751334920197!5m2!1sen!2sco" 
-                width="100%" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-            <a href="https://maps.app.goo.gl/LGC8sPcGWbWVPxJt7" 
-               target="_blank" 
-               class="directions-button">
-              Ver en Google Maps
-            </a>
+      </div>
+
+      <div class="main-containers">
+
+        <div class="child-containers">
+          <h2 class="sub-heading">Ceremonia</h2>
+          <p>
+            Nuestra boda será un evento religioso en la
+          </p>
+          <p class="ceremony-info-details-subtext">
+            Parroquia San Antonio del Carrizal (Girón)
+          </p>
+          <p class="ceremony-info-details-subtext" style="margin-bottom: 15px;">
+            Hora: 6:00 PM
+          </p>
+          <div class="gallery-slider ceremony-gallery">
+            <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Anterior" onclick="changeCeremonyGalleryImage(-1)">
+              <i class="fas fa-chevron-left" style="color: white;"></i>
+            </button>
+            <img src="./img/iglesia.jpg" alt="Parroquia San Antonio del Carrizal 1" class="gallery-slide">
+            <img src="./img/iglesia2.jpg" alt="Parroquia San Antonio del Carrizal 2" class="gallery-slide active">
+            <img src="./img/iglesia3.jpg" alt="Parroquia San Antonio del Carrizal 3" class="gallery-slide">
+            <img src="./img/iglesia4.jpg" alt="Parroquia San Antonio del Carrizal 4" class="gallery-slide">
+            <img src="./img/iglesia5.jpg" alt="Parroquia San Antonio del Carrizal 5" class="gallery-slide">
+            <button class="gallery-arrow gallery-arrow-right" type="button" aria-label="Siguiente" onclick="changeCeremonyGalleryImage(1)">
+              <i class="fas fa-chevron-right" style="color: white;"></i>
+            </button>
           </div>
-        </div>
-      </section>
-      
-      <section class="section" id="recepcion">
-        <h2 class="sub-heading">Recepción</h2>
-        <div class="details">
-          <i class="fas fa-map-marked-alt"></i>
-          <h3 class="details-heading">Finca San Jose, Carrizal, Girón</h3>
+          
           <div class="locations-container">
             <div class="location-card">
-              <!-- Gallery Slider Start -->
-              <div class="gallery-slider">
-                <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Anterior" onclick="changeGalleryImage(-1)">
-                  <i class="fas fa-chevron-left" style="color: white;"></i>
-                </button>
-                <img src="./img/finca-1.jpg" alt="Finca San Jose 1" class="gallery-slide active" />
-                <img src="./img/finca-2.jpg" alt="Finca San Jose 2" class="gallery-slide" />
-                <img src="./img/finca-3.jpg" alt="Finca San Jose 3" class="gallery-slide" />
-                <img src="./img/finca-4.jpg" alt="Finca San Jose 4" class="gallery-slide" />
-                <img src="./img/finca-5.jpg" alt="Finca San Jose 5" class="gallery-slide" />
-                <button class="gallery-arrow gallery-arrow-right" type="button" aria-label="Siguiente" onclick="changeGalleryImage(1)">
-                  <i class="fas fa-chevron-right" style="color: white;"></i>
-                </button>
-              </div>
-              <!-- Gallery Slider End -->
               <div class="map-container">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.2673292128775!2d-73.179727!3d7.094981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683fa8ca35bd83%3A0xff44c497f97d4eac!2sFinca%20San%20Jos%C3%A9%2C%20Vereda%20el%20Carrizal!5e0!3m2!1sen!2sco!4v1751335316836!5m2!1sen!2sco" 
-                  width="100%" 
-                  height="450" 
-                  style="border:0;" 
-                  allowfullscreen="" 
-                  loading="lazy" 
-                  referrerpolicy="no-referrer-when-downgrade">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.3716761445517!2d-73.1746718!3d7.082838700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683e7d956eaa8b%3A0x210879c5f3fbd6b7!2sParroquia%20San%20Antonio%20del%20Carrizal!5e0!3m2!1sen!2sco!4v1751334920197!5m2!1sen!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
               </div>
-              <a href="https://maps.app.goo.gl/LGC8sPcGWbWVPxJt7" 
-                 target="_blank" 
-                 class="directions-button">
+              <a href="https://maps.app.goo.gl/9GaSkU3RHeACdMX68" target="_blank" class="directions-button">
                 Ver en Google Maps
               </a>
             </div>
           </div>
         </div>
-      </section>
-      
-      <section class="section">
-        <h2 class="sub-heading">Confirmar Asistencia</h2>
-        <div class="details">
-          <i class="fas fa-suitcase"></i>
-          <h3 class="details-heading">RSVP</h3>
-          <button id="openModal" class="modal-button">Confirmar Asistencia</button>
 
-          <!-- Modal -->
-          <div id="rsvpModal" class="modal">
-            <div class="modal-content">
-              <span class="close-button">&times;</span>
-              <form class="rsvp-form" id="rsvpForm">
-                <h3>Por favor, Confirma tu Asistencia</h3>
-                
-                <div class="form-group">
-                  <label for="name">Invitados</label>
-                  <input type="text" id="name" name="name" autocomplete="name" required>
+        <div class="child-containers">
+          <h2 class="sub-heading">Recepción</h2>
+          <div class="ceremony-info-general-details">
+            <p class="ceremony-info-details-heading">
+              El lugar elegido para realizar el evento es la               
+            </p>
+            <p class="ceremony-info-details-subtext">
+              Finca San Jose (Carrizal, Girón)
+            </p>
+            <p class="ceremony-info-details-subtext" style="margin-bottom: 15px;">
+              Hora: 7:00 PM
+            </p>
+            <div class="locations-container">
+              <div class="location-card">
+                <!-- Gallery Slider Start -->
+                <div class="gallery-slider ceremony-general-info">
+                  <button class="gallery-arrow gallery-arrow-left" type="button" aria-label="Anterior" onclick="changeGalleryImage(-1)">
+                    <i class="fas fa-chevron-left" style="color: white;"></i>
+                  </button>
+                  <img src="./img/finca-1.jpg" alt="Finca San Jose 1" class="gallery-slide">
+                  <img src="./img/finca-2.jpg" alt="Finca San Jose 2" class="gallery-slide">
+                  <img src="./img/finca-3.jpg" alt="Finca San Jose 3" class="gallery-slide">
+                  <img src="./img/finca-4.jpg" alt="Finca San Jose 4" class="gallery-slide">
+                  <img src="./img/finca-5.jpg" alt="Finca San Jose 5" class="gallery-slide">
+                  <button class="gallery-arrow gallery-arrow-right" type="button" aria-label="Siguiente" onclick="changeGalleryImage(1)">
+                    <i class="fas fa-chevron-right" style="color: white;"></i>
+                  </button>
                 </div>
-
-                <div class="form-group">
-                  <label for="guests">Número de Invitados *</label>
-                  <select id="guests" name="guests">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
+                <!-- Gallery Slider End -->
+                <div class="map-container">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.2673292128775!2d-73.179727!3d7.094981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683fa8ca35bd83%3A0xff44c497f97d4eac!2sFinca%20San%20Jos%C3%A9%2C%20Vereda%20el%20Carrizal!5e0!3m2!1sen!2sco!4v1751335316836!5m2!1sen!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
                 </div>
-
-                <div class="form-group">
-                  <label>¿Asistirás?</label>
-                  <div class="radio-group">
-                    <div class="radio-option">
-                      <input type="radio" id="yes" name="attendance" value="yes" required>
-                      <label for="yes">Sí, asistiré</label>
-                    </div>
-                    <div class="radio-option">
-                      <input type="radio" id="no" name="attendance" value="no">
-                      <label for="no">No podré asistir</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="notes">Notas Adicionales</label>
-                  <textarea id="notes" name="notes" rows="3" placeholder="Comentarios o requerimientos especiales"></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Confirmar Asistencia</button>
-              </form>
+                <a href="https://maps.app.goo.gl/CvNswX1gzSN6hrGZ8" target="_blank" class="directions-button">
+                  Ver en Google Maps
+                </a>
+              </div>
             </div>
           </div>
+        </div>        
+      </div>
+
+      <div class="main-containers">
+        
+        <div class="child-containers">
+          <h2 class="sub-heading">
+            Dress Code
+          </h2>
+          <p>
+            Solo te pedimos un detalle especial:
+          </p>       
+          <h2 class="sub-heading-dress-code">
+            Nos reservamos el color blanco.
+          </h2>
+          <div class="subchild-containers-wrapper">
+            <div class="child-containers">
+              <img src="./img/woman-dress.png" class="dress-code-image" alt="Woman Dress">
+              <p>
+                Para ellas: <br><br>
+                Queremos que estés preciosa ese día y que te sientas tú misma, así que elige un look con el que te sientas cómoda y feliz.
+                
+              </p>
+            </div>
+            <div class="child-containers">
+              <img src="./img/man-suit.png" class="dress-code-image" alt="Man Suit">
+              <p>
+                Para ellos: <br><br>
+                La idea es que te sientas relajado, sin preocuparte por llevar un conjunto acartonado. Elige el look con el que mejor te sientas.                                
+              </p>
+            </div>
+          </div>  
         </div>
-      </section>
+
+        <div class="child-containers">
+          <h2 class="sub-heading">Confirmar Asistencia</h2>
+          <i class="fas fa-suitcase"></i>
+          <h3 class="details-heading">RSVP</h3>
+          <p class="confirm-assistance-text">
+            Es muy importante que nos confirmes si puedes
+            acompañarnos ese día por eso te pedimos que nos
+            confirmes antes del 5 de Diciembre 2025
+          </p>
+          <button id="openModal" class="modal-button" style="margin-top:30px;">Confirmar Asistencia</button>          
+        </div>
+      </div>
     </div>
+    
+    <!-- Modal -->
+    <div id="rsvpModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <form class="rsvp-form" id="rsvpForm">
+          <h3>Por favor, Confirma tu Asistencia</h3>
+          
+          <div class="form-group">
+            <label for="name">Invitados</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="guests">Número de Invitados *</label>
+            <select id="guests" name="guests">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>¿Asistirás?</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="yes" name="attendance" value="yes" required>
+                <label for="yes">Sí, asistiré</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="no" name="attendance" value="no">
+                <label for="no">No podré asistir</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notas Adicionales</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Comentarios o requerimientos especiales"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Confirmar Asistencia</button>
+        </form>
+      </div>
+    </div>
+    <!-- Modal -->
 
     <script src="script.js"></script>
   </body>

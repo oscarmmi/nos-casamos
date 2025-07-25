@@ -3,8 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100dvh;
-  /* You can adjust min-height if you want a different height */
+  min-height: 500px;
 }
 
 /* Slider Styles */
@@ -148,10 +147,7 @@
   }
 }
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
+
 
 /* Section Link Styles */
 .section-link {
@@ -262,37 +258,8 @@ html {
   color: #ffeaa7;
 }
 
-.calendar-actions {
-  text-align: center;
-  margin: 2rem 0;
-}
 
-.calendar-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #1E1C1C, #333);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border: 2px solid transparent;
-}
 
-.calendar-button:hover {
-  background: linear-gradient(135deg, #333, #1E1C1C);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.calendar-button i {
-  font-size: 1.2rem;
-}
 
 .calendar-note {
   margin-top: 1rem;
@@ -410,17 +377,6 @@ html {
     max-width: 100%;
     padding: 1.5rem;
   }
-}
-
-.header-content {
-  text-align: center;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  max-width: 800px;
-  width: 90%;
-  position: relative;
-  z-index: 5;
 }
 
 .heading {
@@ -840,14 +796,7 @@ textarea {
 } 
 
 /* --- HEADER: Use dynamic viewport height for better mobile support --- */
-.header {
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* Remove or comment out any fixed height or padding that causes issues */
-}
+
 
 /* --- SLIDER: Use aspect-ratio for background images --- */
 .slider .slide {
@@ -859,15 +808,7 @@ textarea {
 }
 
 /* --- GALLERY SLIDER: Use object-fit for <img> tags --- */
-.gallery-slider .gallery-slide {
-  width: 100%;
-  height: auto;
-  max-height: 350px; /* Desktop default */
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto;
-}
+
 
 /* --- RESPONSIVE ADJUSTMENTS FOR MOBILE --- */
 @media (max-width: 600px) {
@@ -883,17 +824,17 @@ textarea {
     flex-direction: column;
     min-height: 0; /* critical for flex scroll */
   }
+
+  .details h1 {
+    font-size: 3rem;
+  }
+  
   .slider-container {
     flex: 0 0 60vh;
     max-height: 60vh;
     min-height: 0;
   }
-  .header-content {
-    flex: 1 1 0;
-    min-height: 0; /* critical for flex scroll */
-    overflow-y: auto;
-    /* Remove max-height! */
-  }
+
   .slider .slide {
     height: 100%;
     max-height: 100%;

@@ -333,7 +333,10 @@ if (audio && playBtn && pauseBtn && resetBtn) {
 
 // --- Gallery Slider for Recepción section ---
 (function() {
-  const gallerySlides = document.querySelectorAll('.gallery-slide');
+  const ceremonyGeneralInfoGallery = document.querySelector(".ceremony-general-info");
+  if (!ceremonyGeneralInfoGallery) return;
+  const gallerySlides =
+  ceremonyGeneralInfoGallery.querySelectorAll(".gallery-slide");
   const totalGallery = gallerySlides.length;
   let currentGalleryIndex = 0;
   let galleryInterval;

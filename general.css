@@ -1,0 +1,193 @@
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0px;
+    width: 100%;
+}
+
+.header {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Remove or comment out any fixed height or padding that causes issues */
+}
+  
+.details {
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+  
+.details h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+}
+  
+.details h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 6rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color:#817649;
+}
+  
+.details p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+}
+  
+.text-missing-days {
+    font-family: 'Caveat', cursive !important;
+    color: #daa668 !important;
+    font-size: 2rem !important;
+}
+  
+.main-containers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main-containers>div {
+    padding: 5%;
+    text-align: center;
+}
+  
+.child-containers {
+    width: 50%;
+}
+
+.child-containers p {
+    text-align: center;
+}
+
+.calendar-button i {
+    font-size: 1.2rem;
+    color:white;
+}
+
+.calendar-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: green;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+}
+
+.calendar-button:hover {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: green;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+}
+
+.calendar-actions {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.sub-heading{
+    font-family: 'Caveat', cursive;
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.ceremony-info-details-subtext {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.gallery-slider .gallery-slide {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+.location-card {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.confirm-assistance-text {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.subchild-containers-wrapper {
+    display: inline-flex;
+}
+
+.dress-code-image {
+    width: 100%;
+}
+
+.sub-heading-dress-code {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header-content {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    z-index: 5;
+    top: 150px;
+}
+
+@media (max-width: 768px) {
+    .main-containers {
+        flex-direction: column;
+    }
+    .child-containers {
+        width: auto;
+    }
+    .header-content {
+        top: 50px;
+    }
+  }
